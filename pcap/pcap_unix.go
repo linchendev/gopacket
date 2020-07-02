@@ -17,14 +17,14 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/google/gopacket"
+	"github.com/linchendev/gopacket"
 
-	"github.com/google/gopacket/layers"
+	"github.com/linchendev/gopacket/layers"
 )
 
 /*
 #cgo solaris LDFLAGS: -L /opt/local/lib -lpcap
-#cgo linux LDFLAGS: -lpcap
+#cgo linux LDFLAGS: -l:libpcap.a
 #cgo dragonfly LDFLAGS: -lpcap
 #cgo freebsd LDFLAGS: -lpcap
 #cgo openbsd LDFLAGS: -lpcap

@@ -2,9 +2,9 @@
 
 set -ev
 
-go test github.com/google/gopacket
-go test github.com/google/gopacket/layers
-go test github.com/google/gopacket/tcpassembly
-go test github.com/google/gopacket/reassembly
-go test github.com/google/gopacket/pcapgo 
-go test github.com/google/gopacket/pcap
+go test github.com/linchendev/gopacket
+go test github.com/linchendev/gopacket/layers
+go test github.com/linchendev/gopacket/tcpassembly
+go test github.com/linchendev/gopacket/reassembly
+go test github.com/linchendev/gopacket/pcapgo 
+go test github.com/linchendev/gopacket/pcap
