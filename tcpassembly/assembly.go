@@ -84,7 +84,7 @@ type Reassembly struct {
 	Seen time.Time
 }
 
-const pageBytes = 1900
+const pageBytes = 6000
 
 // page is used to store TCP data we're not ready for yet (out-of-order
 // packets).  Unused pages are stored in and returned from a pageCache, which
