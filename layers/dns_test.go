@@ -484,7 +484,7 @@ func TestDNSEncodeQueryWithOPT(t *testing.T) {
 			Type:  DNSTypeOPT,
 			Class: 4096,
 			OPT: []DNSOPT{
-				DNSOPT{
+				{
 					Code: DNSOptionCodeDeviceID,
 					Data: []byte("OpenDNS"),
 				},
@@ -1094,13 +1094,13 @@ func TestPacketDNSPanic7(t *testing.T) {
 
 func TestDNSPacketWriteAnswer(t *testing.T) {
 	dns := &DNS{ID: 0x1234, QR: true, OpCode: DNSOpCodeQuery, ResponseCode: DNSResponseCodeNoErr, Answers: []DNSResourceRecord{
-		DNSResourceRecord{
+		{
 			Name:  []byte("www.example.com"),
 			Type:  DNSTypeA,
 			Class: DNSClassIN,
 			IP:    net.IPv4(127, 0, 0, 1),
 		},
-		DNSResourceRecord{
+		{
 			Name:  []byte("www.example.com"),
 			Type:  DNSTypeAAAA,
 			Class: DNSClassIN,

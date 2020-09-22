@@ -314,7 +314,7 @@ func (d *NTP) DecodeFromBytes(data []byte, df gopacket.DecodeFeedback) error {
 	//    Contents is supposed to contain the bytes of the data at this level.
 	//    Payload is supposed to contain the payload of this level.
 	// Here we set the baselayer to be the bytes of the NTP record.
-	d.BaseLayer = BaseLayer{Contents: data[:len(data)]}
+	d.BaseLayer = BaseLayer{Contents: data[:]}
 
 	// Extract the fields from the block of bytes.
 	// To make sense of this, refer to the packet diagram

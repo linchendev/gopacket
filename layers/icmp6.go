@@ -68,7 +68,7 @@ type icmpv6TypeCodeInfoStruct struct {
 
 var (
 	icmpv6TypeCodeInfo = map[uint8]icmpv6TypeCodeInfoStruct{
-		ICMPv6TypeDestinationUnreachable: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeDestinationUnreachable: {
 			"DestinationUnreachable", &map[uint8]string{
 				ICMPv6CodeNoRouteToDst:           "NoRouteToDst",
 				ICMPv6CodeAdminProhibited:        "AdminProhibited",
@@ -79,41 +79,41 @@ var (
 				ICMPv6CodeRejectRouteToDst:       "RejectRouteToDst",
 			},
 		},
-		ICMPv6TypePacketTooBig: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypePacketTooBig: {
 			"PacketTooBig", nil,
 		},
-		ICMPv6TypeTimeExceeded: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeTimeExceeded: {
 			"TimeExceeded", &map[uint8]string{
 				ICMPv6CodeHopLimitExceeded:               "HopLimitExceeded",
 				ICMPv6CodeFragmentReassemblyTimeExceeded: "FragmentReassemblyTimeExceeded",
 			},
 		},
-		ICMPv6TypeParameterProblem: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeParameterProblem: {
 			"ParameterProblem", &map[uint8]string{
 				ICMPv6CodeErroneousHeaderField:   "ErroneousHeaderField",
 				ICMPv6CodeUnrecognizedNextHeader: "UnrecognizedNextHeader",
 				ICMPv6CodeUnrecognizedIPv6Option: "UnrecognizedIPv6Option",
 			},
 		},
-		ICMPv6TypeEchoRequest: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeEchoRequest: {
 			"EchoRequest", nil,
 		},
-		ICMPv6TypeEchoReply: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeEchoReply: {
 			"EchoReply", nil,
 		},
-		ICMPv6TypeRouterSolicitation: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeRouterSolicitation: {
 			"RouterSolicitation", nil,
 		},
-		ICMPv6TypeRouterAdvertisement: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeRouterAdvertisement: {
 			"RouterAdvertisement", nil,
 		},
-		ICMPv6TypeNeighborSolicitation: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeNeighborSolicitation: {
 			"NeighborSolicitation", nil,
 		},
-		ICMPv6TypeNeighborAdvertisement: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeNeighborAdvertisement: {
 			"NeighborAdvertisement", nil,
 		},
-		ICMPv6TypeRedirect: icmpv6TypeCodeInfoStruct{
+		ICMPv6TypeRedirect: {
 			"Redirect", nil,
 		},
 	}

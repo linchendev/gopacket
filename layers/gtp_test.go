@@ -135,7 +135,7 @@ func TestGTPPacketWithEH(t *testing.T) {
 			MessageLength:       88,
 			TEID:                1050199,
 			SequenceNumber:      5,
-			GTPExtensionHeaders: []GTPExtensionHeader{GTPExtensionHeader{Type: uint8(192), Content: []byte{0x9, 0x4}}},
+			GTPExtensionHeaders: []GTPExtensionHeader{{Type: uint8(192), Content: []byte{0x9, 0x4}}},
 		}
 		want.BaseLayer = BaseLayer{testGTPPacketWithEH[42:58], testGTPPacketWithEH[58:]}
 		if !reflect.DeepEqual(got, want) {

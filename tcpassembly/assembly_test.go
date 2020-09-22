@@ -101,17 +101,17 @@ func TestReorder(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{3, 2, 3}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Skip:  -1,
 					Bytes: []byte{1, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{2, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{3, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{4, 2, 3},
 				},
 			},
@@ -142,13 +142,13 @@ func TestReorder(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Bytes: []byte{1, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{2, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{3, 2, 3},
 				},
 			},
@@ -167,7 +167,7 @@ func TestMaxPerSkip(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Start: true,
 					Bytes: []byte{1, 2, 3},
 				},
@@ -208,17 +208,17 @@ func TestMaxPerSkip(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{6, 2, 3}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Skip:  3,
 					Bytes: []byte{3, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{4, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{5, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{6, 2, 3},
 				},
 			},
@@ -237,7 +237,7 @@ func TestReorderFast(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Start: true,
 					Bytes: []byte{1, 2, 3},
 				},
@@ -260,10 +260,10 @@ func TestReorderFast(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{2, 2, 3}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Bytes: []byte{2, 2, 3},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{3, 2, 3},
 				},
 			},
@@ -282,7 +282,7 @@ func TestOverlap(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Start: true,
 					Bytes: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0},
 				},
@@ -296,7 +296,7 @@ func TestOverlap(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{7, 8, 9, 0, 1, 2, 3, 4, 5}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Bytes: []byte{1, 2, 3, 4, 5},
 				},
 			},
@@ -309,7 +309,7 @@ func TestOverlap(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{0, 1, 2, 3, 4, 5, 6, 7}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Bytes: []byte{6, 7},
 				},
 			},
@@ -346,14 +346,14 @@ func TestBufferedOverlap(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Start: true,
 					Bytes: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{1, 2, 3, 4, 5},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{6, 7},
 				},
 			},
@@ -372,7 +372,7 @@ func TestOverrun1(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Start: true,
 					Bytes: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0},
 				},
@@ -386,7 +386,7 @@ func TestOverrun1(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3, 4}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Bytes: []byte{1, 2, 3, 4},
 				},
 			},
@@ -414,11 +414,11 @@ func TestOverrun2(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Start: true,
 					Bytes: []byte{1, 2, 3, 4, 5, 6, 7, 8, 9, 0},
 				},
-				Reassembly{
+				{
 					Bytes: []byte{1, 2, 3, 4},
 				},
 			},
@@ -447,17 +447,17 @@ func TestCacheLargePacket(t *testing.T) {
 				BaseLayer: layers.BaseLayer{Payload: []byte{}},
 			},
 			want: []Reassembly{
-				Reassembly{
+				{
 					Start: true,
 					Bytes: []byte{},
 				},
-				Reassembly{
+				{
 					Bytes: data[:pageBytes],
 				},
-				Reassembly{
+				{
 					Bytes: data[pageBytes : pageBytes*2],
 				},
-				Reassembly{
+				{
 					Bytes: data[pageBytes*2 : pageBytes*3],
 				},
 			},

@@ -42,11 +42,11 @@ func testEncodeDecodeDot1Q(dot1Q *Dot1Q) error {
 // Test to ensure what has been encode can be decoded
 func TestEncodeDecodeDot1Q(t *testing.T) {
 	dot1Qs := []*Dot1Q{
-		&Dot1Q{
+		{
 			Priority:       uint8(3),
 			VLANIdentifier: uint16(30),
 		},
-		&Dot1Q{
+		{
 			Priority:       uint8(0x07),
 			DropEligible:   true,
 			VLANIdentifier: uint16(0xFFF),

@@ -468,11 +468,13 @@ const (
 func (self RadioTapAMPDUStatusFlags) ReportZerolen() bool {
 	return self&RadioTapAMPDUStatusFlagsReportZerolen != 0
 }
-func (self RadioTapAMPDUStatusFlags) IsZerolen() bool     { return self&RadioTapAMPDUIsZerolen != 0 }
-func (self RadioTapAMPDUStatusFlags) LastKnown() bool     { return self&RadioTapAMPDULastKnown != 0 }
-func (self RadioTapAMPDUStatusFlags) IsLast() bool        { return self&RadioTapAMPDUIsLast != 0 }
-func (self RadioTapAMPDUStatusFlags) DelimCRCErr() bool   { return self&RadioTapAMPDUDelimCRCErr != 0 }
-func (self RadioTapAMPDUStatusFlags) DelimCRCKnown() bool { return self&RadioTapAMPDUDelimCRCKnown != 0 }
+func (self RadioTapAMPDUStatusFlags) IsZerolen() bool   { return self&RadioTapAMPDUIsZerolen != 0 }
+func (self RadioTapAMPDUStatusFlags) LastKnown() bool   { return self&RadioTapAMPDULastKnown != 0 }
+func (self RadioTapAMPDUStatusFlags) IsLast() bool      { return self&RadioTapAMPDUIsLast != 0 }
+func (self RadioTapAMPDUStatusFlags) DelimCRCErr() bool { return self&RadioTapAMPDUDelimCRCErr != 0 }
+func (self RadioTapAMPDUStatusFlags) DelimCRCKnown() bool {
+	return self&RadioTapAMPDUDelimCRCKnown != 0
+}
 
 type RadioTapVHT struct {
 	Known      RadioTapVHTKnown
@@ -871,7 +873,7 @@ func (m *RadioTap) DecodeFromBytes(data []byte, df gopacket.DecodeFeedback) erro
 			headlen += 2
 		}
 		if headlen%4 == 2 {
-			payload = append(payload[:headlen], payload[headlen+2:len(payload)]...)
+			payload = append(payload[:headlen], payload[headlen+2:]...)
 		}
 	}
 

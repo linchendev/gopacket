@@ -92,7 +92,7 @@ func (v *VRRPv2) LayerType() gopacket.LayerType { return LayerTypeVRRP }
 
 func (v *VRRPv2) DecodeFromBytes(data []byte, df gopacket.DecodeFeedback) error {
 
-	v.BaseLayer = BaseLayer{Contents: data[:len(data)]}
+	v.BaseLayer = BaseLayer{Contents: data[:]}
 	v.Version = data[0] >> 4 // high nibble == VRRP version. We're expecting v2
 
 	v.Type = VRRPv2Type(data[0] & 0x0F) // low nibble == VRRP type. Expecting 1 (advertisement)
